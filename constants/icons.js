@@ -1,27 +1,12 @@
+export const cutlery2 = require("../assets/icons/cutlery2.png");
+export const search8 = require("../assets/icons/search8.png");
+export const like2 = require("../assets/icons/like2.png");
+export const user = require("../assets/icons/user.png");
+
 export default {
-  back,
-  car,
-  cutlery,
-  donut,
-  drink,
-  fire,
-  fries,
-  hamburger,
-  hotdog,
-  like,
-  list,
-  location,
-  master_card,
-  nearby,
-  noodle,
-  pin,
-  pizza,
-  red_pin,
-  rice_bowl,
-  salad,
-  search,
-  basket,
-  star,
-  sushi,
-  user
+  cutlery2,
+  search8,
+  like2,
+  user,
+  
 }
