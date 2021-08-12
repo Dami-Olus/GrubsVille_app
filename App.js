@@ -3,16 +3,16 @@ import { createStackNavigator, CreateStackNavigator } from '@react-navigation/st
 import { NavigationContainer } from '@react-navigation/native'
 
 import Tabs from './navigation/tabs'
-import { Home, Restaurant, OrderDelivery } from './screens'
+import { Home, Restaurant, OrderDelivery, Food } from './screens'
 
 const Stack = createStackNavigator()
 
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{headerShown: false}} initialRouteName={'Home'}>
-        <Stack.Screen name='Home' component={Tabs} />
-        <Stack.Screen name='Restaurant' component={Restaurant} />
+      <Stack.Navigator screenOptions={{headerShown: false}} initialRouteName={''}>
+        <Stack.Screen name='Tabs' component={Tabs} />
+        <Stack.Screen name='Food' component={Food} />
         <Stack.Screen name='OrderDelivery' component={OrderDelivery} />
       </Stack.Navigator>
     </NavigationContainer>

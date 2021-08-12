@@ -14,6 +14,10 @@ export const pizza = require("../assets/icons/pizza.png");
 export const rice_bowl = require("../assets/icons/rice_bowl.png");
 export const salad = require("../assets/icons/salad.png");
 export const sushi = require("../assets/icons/sushi.png");
+export const star = require("../assets/icons/star.png");
+export const back = require("../assets/icons/back.png");
+export const list = require("../assets/icons/list.png");
+export const fire = require("../assets/icons/fire.png");
 
 export default {
   cutlery2,
@@ -32,5 +36,9 @@ export default {
   rice_bowl,
   salad,
   sushi,
+  star,
+  back,
+  list,
+  fire,
   
 }

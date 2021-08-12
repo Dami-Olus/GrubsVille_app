@@ -2,7 +2,7 @@ import React from 'react'
 import { View, Text, SafeAreaView, StyleSheet, TouchableOpacity, Image, FlatList } from 'react-native'
 import { COLORS, icons, images, SIZES, FONTS } from '../constants'
 
-function Home() {
+function Home({navigation}) {
 
    // Dummy Datas
 
@@ -76,7 +76,7 @@ const expensive = 3
 const restaurantData = [
     {
         id: 1,
-        name: "ByProgrammers Burger",
+        name: "Amala and Ewedu",
         rating: 4.8,
         categories: [5, 7],
         priceRating: affordable,
@@ -93,9 +93,9 @@ const restaurantData = [
         menu: [
             {
                 menuId: 1,
-                name: "Crispy Chicken Burger",
-                photo: images.crispy_chicken_burger,
-                description: "Burger with crispy chicken, cheese and lettuce",
+                name: "Amala with Egusi",
+                photo: images.amala_egusi,
+                description: "Amala with Egusi and Goat Meat",
                 calories: 200,
                 price: 10
             },
@@ -119,7 +119,7 @@ const restaurantData = [
     },
     {
         id: 2,
-        name: "ByProgrammers Pizza",
+        name: "Eba and Okra",
         rating: 4.8,
         categories: [2, 4, 6],
         priceRating: expensive,
@@ -170,7 +170,7 @@ const restaurantData = [
     },
     {
         id: 3,
-        name: "ByProgrammers Hotdogs",
+        name: "Fried Rice and Chicken",
         rating: 4.8,
         categories: [3],
         priceRating: expensive,
@@ -197,7 +197,7 @@ const restaurantData = [
     },
     {
         id: 4,
-        name: "ByProgrammers Sushi",
+        name: "Jollof Rice with beef and Tomatos",
         rating: 4.8,
         categories: [8],
         priceRating: expensive,
@@ -224,7 +224,7 @@ const restaurantData = [
     },
     {
         id: 5,
-        name: "ByProgrammers Cuisine",
+        name: "Spagghetti Bollonaisse",
         rating: 4.8,
         categories: [1, 2],
         priceRating: affordable,
@@ -277,7 +277,7 @@ const restaurantData = [
     {
 
         id: 6,
-        name: "ByProgrammers Dessets",
+        name: "Moi Moi",
         rating: 4.9,
         categories: [9, 10],
         priceRating: affordable,
@@ -337,6 +337,13 @@ const [categories, setCategories] = React.useState(categoryData)
     setRestaurants(restaurantList)
 
     setSelectedCategory(category)
+  }
+
+  function getCategoryNameById(id) {
+    let category = categories.filter(a => a.id == id)
+
+    if(category.length > 0)
+      return category[0].name
   }
 
 
@@ -461,10 +468,17 @@ const [categories, setCategories] = React.useState(categoryData)
     const renderItem = ({item}) => (
       <TouchableOpacity
         style={{marginBottom: SIZES.padding * 2}}
-        //onPress -> navigate to Restauranrt Screen
+        onPress={() => navigation.navigate("Food", {
+          item,
+          currentLocation
+        })}
       >
         {/* Image */}
-        <View>
+        <View
+          style={{
+            marginBottom: SIZES.padding
+          }}
+        >
           <Image
             source={item.photo}
             resizeMode="cover"
@@ -474,8 +488,87 @@ const [categories, setCategories] = React.useState(categoryData)
               borderRadius: SIZES.radius
             }}
           />
+
+          <View
+            style={{
+              position: 'absolute',
+              bottom: 0,
+              height: 50,
+              width: SIZES.width * 0.3,
+              backgroundColor: COLORS.white,
+              borderTopRightRadius: SIZES.radius,
+              borderBottomLeftRadius: SIZES.radius,
+              alignItems: 'center',
+              justifyContent: 'center',
+              ...styles.shadow
+            }}
+          >
+              <Text style={{ ...FONTS.h4 }}>{item.duration}</Text>
+          </View>
         </View>
 
+        {/* Restaurant Info*/}
+        <Text style={{ ...FONTS.body2 }}>{item.name}</Text>
+        <View
+        style={{
+          marginTop: SIZES.padding,
+          flexDirection: 'row'
+        }}
+        >
+            {/* Rating */}
+            <Image
+              source={icons.star}
+              style={{
+                height: 20,
+                width: 20,
+                tintColor: COLORS.primary,
+                marginRight: 10
+              }}
+            />
+            <Text style={{ ...FONTS.body3 }}>{item.rating}</Text>
+
+              {/* Categories */}
+              <View
+                style={{
+                  flexDirection: 'row',
+                  marginLeft: 10
+                }}
+              >
+                {
+                  item.categories.map((categoryId) => {
+                    return (
+                      <View
+                        style={{ flexDirection: 'row'}}
+                        key={categoryId}
+                      >
+                        <Text style={{ ...FONTS.body3 }}>{getCategoryNameById(categoryId)}</Text>
+                        <Text style={{ ...FONTS.h3, color: COLORS.darkgray}}> . </Text>
+                      </View>
+
+                    )
+                  })
+                }
+
+                {/* Price */}
+                {
+                  [1,2,3].map((priceRating) => (
+                    <Text 
+                      key={priceRating}
+                      style={{
+                        ...FONTS.body3,
+                        color: (priceRating <= item.priceRating) ? COLORS.black : COLORS.darkgray
+                      }}
+                    >
+                      $
+                    </Text>
+                  ))
+                }
+
+
+              </View>
+              
+
+        </View>
       </TouchableOpacity>
     )
 

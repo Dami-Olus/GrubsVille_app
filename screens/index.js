@@ -1,5 +1,5 @@
 import Home from './Home'
-import Restaurant from './Restaurant'
+import Food from './Food'
 import OrderDelivery from './OrderDelivery'
 
-export { Home, Restaurant, OrderDelivery }
+export { Home, Food, OrderDelivery }
