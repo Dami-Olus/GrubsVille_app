@@ -20,6 +20,7 @@ export const list = require("../assets/icons/list.png");
 export const fire = require("../assets/icons/fire.png");
 export const pin = require("../assets/icons/pin2.png");
 export const car = require("../assets/icons/car.png");
+export const red_pin = require("../assets/icons/red_pin.png");
 
 export default {
   cutlery2,
@@ -44,5 +45,6 @@ export default {
   fire,
   pin,
   car,
+  red_pin,
   
 }

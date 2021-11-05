@@ -5,6 +5,7 @@ export const jollof_rice = require("../assets/images/jollof_rice.jpeg");
 export const spagghetti = require("../assets/images/spagghetti.jpeg");
 export const moi_moi = require("../assets/images/moi_moi.jpeg");
 export const amala_egusi = require("../assets/images/amala_egusi.jpeg");
+export const avatar_1 = require("../assets/images/avatar_1.jpeg");
 
 export default {
   amala,
@@ -14,4 +15,5 @@ export default {
   spagghetti,
   moi_moi,
   amala_egusi,
+  avatar_1
 }
