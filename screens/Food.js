@@ -17,6 +17,7 @@ function Food({ route, navigation}) {
     setFood(item)
     setCurrentLocation(currentLocation)
   })
+  // console.log(currentLocation)
 
   function editOrder(action, menuId, price) {
 
